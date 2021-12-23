@@ -1,0 +1,32 @@
+body {
+  background-color: #f9f9f9;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{
+  color: #00bace;
+}
+a:hover{
+  color: #00ffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  min-height: 93vh;
+}
+
+footer {
+  display:flex;
+  min-height: 200px;
+  background-color: #434343;
+  align-items: center;
+}
