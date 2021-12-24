@@ -32,7 +32,7 @@ export default function Reports(){
                 alert(error)
             })
         }, [])
-        
+
         useEffect(() => {
             fetchData()
         }, [fetchData])
@@ -48,7 +48,7 @@ export default function Reports(){
                                 <MdPictureAsPdf color={'white'} size={96} />
                             </div>
                             <div className="p-3 text-black">
-                                <p className="fw-bold mb-1">Bollettino Dasoe n° {report.n}</p>
+                                <p className="fw-bold mb-1">Bollettino DASOE n° {report.n}</p>
                                 <p><BiCalendarEvent className="me-1"/>{format(new Date(report.data_report), "dd MMMM Y", {locale: it})}</p>
                             </div>
                         </div>
