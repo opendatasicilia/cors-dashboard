@@ -27,13 +27,15 @@ export default function GetData({mode, istat, latest}){
                 title: 'Incidenza',
                 field: 'incidenza',
                 description: 'Incidenza cumulativa settimanale (ogni 100.000 abitanti)',
-                icon: null
+                icon: null,
+                suffix: null
             },
             {
                 title: 'Casi',
                 field: 'casi',
                 description: 'Nuovi casi settimanali',
-                icon: null
+                icon: null,
+                suffix: null
             }
         ],
         vaccini: [
@@ -41,13 +43,15 @@ export default function GetData({mode, istat, latest}){
                 title: 'Vaccinati',
                 field: '%vaccinati',
                 description: 'Percentuale di persone vaccinate con almeno una dose (calcolata rispetto al target)',
-                icon: vaccinati
+                icon: vaccinati,
+                suffix: '%'
             },
             {
                 title: 'Immunizzati',
                 field: '%immunizzati',
                 description: 'Percentuale di: persone vaccinate con 2 o più dosi, persone vaccinate in monodose per pregressa infezione Covid, persone vaccinate con Janssen (calcolata rispetto al target)',
-                icon: immunizzati
+                icon: immunizzati,
+                suffix: '%'
             }
         ]
     }
@@ -71,7 +75,7 @@ export default function GetData({mode, istat, latest}){
                                 isLoading ? <Spinner/> :
                                 <h4 className="h1">
                                     {col.icon && <img style={{height:'30px',margin:'0px 8px 8px 0px'}} src={col.icon} alt={col.title} />}
-                                    {data[0][col.field]}
+                                    {data[0][col.field]}{col.suffix && col.suffix}
                                 </h4>
                             }
                         </div>
