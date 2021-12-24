@@ -43,5 +43,6 @@ footer {
 }
 
 .tooltip {
-  max-width: 40ch;
+  width: 40ch;
+  max-width: 80vw;
 }

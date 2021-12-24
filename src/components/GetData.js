@@ -60,7 +60,7 @@ export default function GetData({mode, istat, latest}){
         <div className="row text-end">
             {
                 layout[mode].map((col, i) => (
-                    <div className="col-6 mb-4" key={col.title+i}>
+                    <div className="col-12 mb-4" key={col.title+i}>
                         <div className="p-3 card border-0 rounded">
                             <div className="d-flex justify-content-end">
                                 <h3 className="text-muted">
