@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@700&display=swap');
+
 body {
   background-color: #f9f9f9;
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -13,9 +16,9 @@ a:hover{
   color: #00ffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,.h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #333
 }
 
 main{
@@ -29,4 +32,16 @@ footer {
   min-height: 200px;
   background-color: #434343;
   align-items: center;
+}
+
+.card{
+  min-height:130px;
+}
+
+.info{
+  cursor: help;
+}
+
+.tooltip {
+  max-width: 40ch;
 }
