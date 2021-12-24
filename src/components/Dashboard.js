@@ -3,6 +3,7 @@ import Select, { createFilter } from 'react-select';
 import comuni from '../data/elenco-comuni-siciliani.json';
 
 import Get from './GetData';
+import Reports from './Reports';
 
 export default function Dashboard(){
 
@@ -35,6 +36,10 @@ export default function Dashboard(){
                 <div className="col-12 col-md-6">
                     <Get mode={"vaccini"} istat={istat} latest={true}/>
                 </div>
+            </div>
+            <div className="row mt-5">
+                <h1 className="h3 text-end mb-3">Bollettini pubblicati</h1>
+                <Reports/>
             </div>
         </div>
       )
