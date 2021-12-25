@@ -47,7 +47,7 @@ footer {
   max-width: 80vw;
 }
 
-th{
+th span{
   cursor: pointer;
   user-select:none;
 }

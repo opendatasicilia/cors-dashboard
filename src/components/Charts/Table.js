@@ -34,20 +34,30 @@ export default function Table(){
             <table>
                 <thead className="text-end" style={{backgroundColor:'#e0e0e0'}}>
                     <th/>
-                    <th onClick={() => sortBy(data,'comune')}className="text-start">
-                        Comune
+                    <th className="text-start">
+                        <span onClick={() => sortBy(data,'comune')}>
+                            Comune
+                        </span>
                     </th>
-                    <th onClick={() => sortBy(data,'incidenza')}>
-                        Incidenza
+                    <th>
+                        <span onClick={() => sortBy(data,'incidenza')}>
+                            Incidenza
+                        </span>
                     </th>
-                    <th onClick={() => sortBy(data,'casi')}>
-                        Nuovi casi
+                    <th>
+                        <span onClick={() => sortBy(data,'casi')}>
+                            Nuovi casi
+                        </span>
                     </th>
-                    <th onClick={() => sortBy(data,'%vaccinati')}>
-                        %Vaccinati
+                    <th>
+                        <span onClick={() => sortBy(data,'%vaccinati')}>
+                            %Vaccinati
+                        </span>
                     </th>
-                    <th onClick={() => sortBy(data,'%immunizzati')}>
-                        %Immunizzati
+                    <th>
+                        <span onClick={() => sortBy(data,'%immunizzati')}>
+                            %Immunizzati
+                        </span>
                     </th>
                 </thead>
                 <tbody>
