@@ -3,6 +3,8 @@ import Select, { createFilter } from 'react-select';
 import comuni from '../data/elenco-comuni-siciliani.json';
 
 import Get from './GetData';
+import Bar from "./Charts/Bar";
+import Line from "./Charts/Line"
 import Reports from './Reports';
 
 export default function Dashboard(){
@@ -35,6 +37,14 @@ export default function Dashboard(){
                 </div>
                 <div className="col-12 col-md-6">
                     <Get mode={"vaccini"} istat={istat} latest={true}/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-6 mb-3">
+                    <Bar mode={"incidenza"} istat={istat} latest={false}/>
+                </div>
+                <div className="col-12 col-md-6 mb-3">
+                    <Line mode={"vaccini"} istat={istat} latest={false}/>
                 </div>
             </div>
             <div className="row mt-5">
