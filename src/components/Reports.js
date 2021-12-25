@@ -41,7 +41,7 @@ export default function Reports(){
         <>
         {
             !isLoading && data.slice(0).reverse().slice(0, 6).map(report => (
-                <div className="col-12 col-md-2" key={report.n}>
+                <div className="col-6 col-md-4 col-xl-2" key={report.n}>
                     <a className="text-decoration-none" href={report.URL} target="_blank" rel="noreferrer">
                         <div className="card border-1 mb-4" style={{borderRadius:'20px'}}>
                             <div className="text-center p-3" style={{backgroundColor:'#118ab2', borderRadius:'20px 20px 0px 0px', position:'relative'}}>
