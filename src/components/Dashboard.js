@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Select, { createFilter } from 'react-select';
+import MenuList from '../lib/menuList';
 import comuni from '../data/elenco-comuni-siciliani.json';
 
 import Get from './GetData';
@@ -28,6 +29,7 @@ export default function Dashboard(){
                     filterOption={createFilter({ ignoreAccents: false })}
                     defaultValue={{value: random['comune_codice_istat'], label: `${random['comune_denominazione']} (${random['provincia_sigla']})`}}
                     options={options}
+                    components={{MenuList}}
                     onChange={(e) => setIstat(e.value)}
                 />
             </div>
