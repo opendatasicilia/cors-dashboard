@@ -46,3 +46,8 @@ footer {
   width: 40ch;
   max-width: 80vw;
 }
+
+th{
+  cursor: pointer;
+  user-select:none;
+}

@@ -5,7 +5,8 @@ import comuni from '../data/elenco-comuni-siciliani.json';
 
 import Get from './GetData';
 import Bar from "./Charts/Bar";
-import Line from "./Charts/Line"
+import Line from "./Charts/Line";
+import Table from './Charts/Table';
 import Reports from './Reports';
 
 export default function Dashboard(){
@@ -50,7 +51,17 @@ export default function Dashboard(){
                 </div>
             </div>
             <div className="row mt-5">
-                <h1 className="h3 text-end mb-3">Bollettini pubblicati</h1>
+                <h1 className="h3 text-uppercase mb-3">
+                    Quali sono i comuni con l'incidenza piu' alta?
+                </h1>
+                <div className="col-12">
+                    <Table/>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <h1 className="h3 text-end mb-3">
+                    Bollettini pubblicati
+                </h1>
                 <Reports/>
             </div>
         </div>
