@@ -52,15 +52,21 @@ ChartJS.register(
 const options = {
   responsive: true,
   scales: {
-    beginAtZero: true,
     x: {
         grid: {display: false}
     },
     y: {
-        suggestedMin: 50,
+        suggestedMin: 10,
         suggestedMax: 100,
-        beginAtZero: true,
       }
+  },
+  layout: {
+    padding: {
+        top: 15,
+        right: 15,
+        bottom: 5,
+        left: 15,
+    }
   },
   plugins: {
     legend: {

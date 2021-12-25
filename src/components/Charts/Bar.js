@@ -49,6 +49,14 @@ const options = {
             grid: {display: false}
         }
     },
+    layout: {
+      padding: {
+          top: 5,
+          right: 15,
+          bottom: 5,
+          left: 15,
+      }
+    },
     plugins: {
         legend: {
             display: false,
@@ -56,6 +64,11 @@ const options = {
         title: {
             display: true,
             text: 'Nuovi casi settimanali',
+            font: {
+              family: 'Roboto',
+              size: 20,
+              weight: 'normal'
+            }
         },
     },
 }
