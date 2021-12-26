@@ -100,7 +100,7 @@ ChartJS.register(
                       grid: {display: false}
                   },
                   y: mode === 'vaccini' ? {
-                      suggestedMin: 10,
+                      suggestedMin: Math.min(...data.vaccinati) - 20,
                       suggestedMax: 100,
                     } : {
                       suggestedMin: 0,

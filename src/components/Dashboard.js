@@ -7,7 +7,6 @@ import Get from './GetData';
 import Bar from "./Charts/Bar";
 import Line from "./Charts/Line";
 import Table from './Charts/Table';
-import Reports from './Reports';
 
 export default function Dashboard(){
 
@@ -65,12 +64,6 @@ export default function Dashboard(){
                 <div className="col-12">
                     <Table/>
                 </div>
-            </div>
-            <div className="row mt-5">
-                <h1 className="h3 text-end mb-3">
-                    Bollettini pubblicati
-                </h1>
-                <Reports/>
             </div>
         </div>
       )

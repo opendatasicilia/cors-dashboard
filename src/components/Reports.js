@@ -38,7 +38,10 @@ export default function Reports(){
         }, [fetchData])
 
     return(
-        <>
+        <div className="row mt-5">
+            <h1 className="h3 text-end mb-3">
+                Bollettini pubblicati
+            </h1>
         {
             !isLoading && data.slice(0).reverse().slice(0, 6).map(report => (
                 <div className="col-6 col-md-4 col-xl-2" key={report.n}>
@@ -56,6 +59,6 @@ export default function Reports(){
                 </div>
             ))
         }
-        </>
+        </div>
     )
 }
