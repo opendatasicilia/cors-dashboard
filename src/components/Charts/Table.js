@@ -33,32 +33,34 @@ export default function Table(){
         <div className="row p-2">
             <table>
                 <thead className="text-end" style={{backgroundColor:'#e0e0e0'}}>
-                    <th/>
-                    <th className="text-start">
-                        <span onClick={() => sortBy(data,'comune')}>
-                            Comune
-                        </span>
-                    </th>
-                    <th>
-                        <span onClick={() => sortBy(data,'incidenza')}>
-                            Incidenza
-                        </span>
-                    </th>
-                    <th>
-                        <span onClick={() => sortBy(data,'casi')}>
-                            Nuovi casi
-                        </span>
-                    </th>
-                    <th>
-                        <span onClick={() => sortBy(data,'%vaccinati')}>
-                            %Vaccinati
-                        </span>
-                    </th>
-                    <th>
-                        <span onClick={() => sortBy(data,'%immunizzati')}>
-                            %Immunizzati
-                        </span>
-                    </th>
+                    <tr>
+                        <th/>
+                        <th className="text-start">
+                            <span onClick={() => sortBy(data,'comune')}>
+                                Comune
+                            </span>
+                        </th>
+                        <th>
+                            <span onClick={() => sortBy(data,'incidenza')}>
+                                Incidenza
+                            </span>
+                        </th>
+                        <th>
+                            <span onClick={() => sortBy(data,'casi')}>
+                                Nuovi casi
+                            </span>
+                        </th>
+                        <th>
+                            <span onClick={() => sortBy(data,'%vaccinati')}>
+                                %Vaccinati
+                            </span>
+                        </th>
+                        <th>
+                            <span onClick={() => sortBy(data,'%immunizzati')}>
+                                %Immunizzati
+                            </span>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
                 {data.slice(0, comuniNumb).map((comune, i) => (
