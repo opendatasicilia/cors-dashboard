@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import fetchData from '../../lib/fetchData';
 import { format } from 'date-fns';
+import targets from '../../data/targets.json'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -27,10 +28,13 @@ export default function LineChart({mode, istat, latest}){
                     incidenza: res.map(a => a.incidenza)
                 })
             } else if(mode === 'vaccini'){
+                const target = targets.filter(a => a.pro_com_t.endsWith(istat))[0];
                 setData({
                     date: res.map(a => format(new Date(a.data), "dd/MM/yy")),
                     vaccinati: res.map(a => a['%vaccinati']),
-                    immunizzati: res.map(a => a['%immunizzati'])
+                    immunizzati: res.map(a => a['%immunizzati']),
+                    target: res.map(a => new Date(a.data) > new Date('2021-12-08') ? target['>=12'] : target['>=5']),
+                    totale: Array(res.length).fill(target.totale)
                 })
             }
             setIsLoading(false)
