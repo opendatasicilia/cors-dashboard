@@ -24,7 +24,6 @@ export default function LineChart({mode, istat, latest}){
             if(mode === 'incidenza'){
                 setData({
                     date: res.map(a => format(new Date(a.data), "dd/MM/yy")),
-                    casi: res.map(a => a.casi),
                     incidenza: res.map(a => a.incidenza)
                 })
             } else if(mode === 'vaccini'){
@@ -49,54 +48,77 @@ ChartJS.register(
   Legend
 );
 
-const options = {
-  responsive: true,
-  scales: {
-    x: {
-        grid: {display: false}
-    },
-    y: {
-        suggestedMin: 10,
-        suggestedMax: 100,
-      }
-  },
-  layout: {
-    padding: {
-        top: 15,
-        right: 15,
-        bottom: 5,
-        left: 15,
-    }
-  },
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-  },
-};
-
   return(
       !isLoading&&
         <div className="h-100 card border-0 rounded">
-            <Line options={options}
+          <Line
             data={{
                 labels: data.date,
-                datasets: [
+                datasets: mode === 'vaccini' ? 
+                  [
+                      {
+                          label: '%Vaccinati',
+                          data: data.vaccinati,
+                          borderColor: 'rgb(6, 214, 160)',
+                          backgroundColor: 'rgba(6, 214, 160, 0.5)',
+                        },
+                        {
+                          label: '%Immunizzati',
+                          data: data.immunizzati,
+                          borderColor: 'rgb(17, 138, 178)',
+                          backgroundColor: 'rgba(17, 138, 178, 0.5)',
+                        },
+                  ]
+                :
+                  [
                     {
-                        label: '%Vaccinati',
-                        data: data.vaccinati,
-                        borderColor: 'rgb(6, 214, 160)',
-                        backgroundColor: 'rgba(6, 214, 160, 0.5)',
+                        label: 'Incidenza settimanale',
+                        data: data.incidenza,
+                        borderColor: '#073b4c',
+                        backgroundColor: '#073b4c',
                       },
                       {
-                        label: '%Immunizzati',
-                        data: data.immunizzati,
-                        borderColor: 'rgb(17, 138, 178)',
-                        backgroundColor: 'rgba(17, 138, 178, 0.5)',
+                        label: '250 soglia critica',
+                        data: Array(data.date.length).fill(250),
+                        borderDash: [4],
+                        borderColor: '#b7b7b7',
+                        backgroundColor: '#b7b7b7',
+                        pointRadius: 0,
                       },
                 ]
             }}
-            />
+            options={
+              {
+                responsive: true,
+                borderWidth: 2,
+                scales: {
+                  x: {
+                      grid: {display: false}
+                  },
+                  y: mode === 'vaccini' ? {
+                      suggestedMin: 10,
+                      suggestedMax: 100,
+                    } : {
+                      suggestedMin: 0,
+                      suggestedMax: 300
+                    }
+                },
+                layout: {
+                  padding: {
+                      top: 15,
+                      right: 15,
+                      bottom: 5,
+                      left: 15,
+                  }
+                },
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                },
+              }
+            }
+          />
         </div>
   );
 }

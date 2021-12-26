@@ -47,6 +47,11 @@ export default function Dashboard(){
                     <Bar mode={"incidenza"} istat={istat} latest={false}/>
                 </div>
                 <div className="col-12 col-md-6 mb-3">
+                    <Line mode={"incidenza"} istat={istat} latest={false}/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-6 mb-3">
                     <Line mode={"vaccini"} istat={istat} latest={false}/>
                 </div>
             </div>
