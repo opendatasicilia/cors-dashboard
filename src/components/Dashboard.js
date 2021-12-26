@@ -52,6 +52,9 @@ export default function Dashboard(){
             </div>
             <div className="row">
                 <div className="col-12 col-md-6 mb-3">
+                    <Bar mode={"vaccini"} istat={istat} latest={false}/>
+                </div>
+                <div className="col-12 col-md-6 mb-3">
                     <Line mode={"vaccini"} istat={istat} latest={false}/>
                 </div>
             </div>
