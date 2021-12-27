@@ -51,3 +51,7 @@ th span{
   cursor: pointer;
   user-select:none;
 }
+
+.slick-next:before, .slick-prev:before{
+  color: #434343;
+}

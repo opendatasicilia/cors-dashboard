@@ -3,6 +3,7 @@ import axios from 'axios'
 import csvToJson from 'csvtojson';
 import { format } from 'date-fns';
 import { it } from 'date-fns/esm/locale'
+import Slider from "react-slick"
 import {BiCalendarEvent} from 'react-icons/bi'
 import {MdPictureAsPdf} from 'react-icons/md'
 
@@ -37,14 +38,51 @@ export default function Reports(){
             fetchData()
         }, [fetchData])
 
+        const settings = {
+            autoplay: false,
+            dots: true,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            initialSlide: 0,
+            centerMode: false,
+            speed: 123,
+            responsive: [
+                {
+                    breakpoint: 960,
+                    settings: {
+                        initialSlide:0,
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                    }
+                },
+                {
+                      breakpoint: 400,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                      }
+                }
+            ]
+          }
+
     return(
-        <div className="row mt-5">
+        !isLoading && 
+        <div className="row mt-5 mb-5">
             <h1 className="h3 text-end mb-3">
                 Bollettini pubblicati
             </h1>
-        {
-            !isLoading && data.slice(0).reverse().slice(0, 6).map(report => (
-                <div className="col-6 col-md-4 col-xl-2" key={report.n}>
+            <Slider {...settings}>
+            {data.slice(0).reverse().map(report => (
+                <div className="col-6 col-md-4 col-xl-2 p-2" key={report.n}>
                     <a className="text-decoration-none" href={report.URL} target="_blank" rel="noreferrer">
                         <div className="card border-1 mb-4" style={{borderRadius:'20px'}}>
                             <div className="text-center p-3" style={{backgroundColor:'#118ab2', borderRadius:'20px 20px 0px 0px', position:'relative'}}>
@@ -57,8 +95,8 @@ export default function Reports(){
                         </div>
                     </a>
                 </div>
-            ))
-        }
+            ))}
+            </Slider>
         </div>
     )
 }
