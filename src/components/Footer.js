@@ -1,6 +1,7 @@
 import scarica from '../images/scarica-dati.png'
 import logo from '../images/opendatasicilia.png'
 import ccby4 from '../images/ccby4.png'
+import {remove} from '../lib/cookieConsent'
 
 export default function Footer(){
     return(
@@ -27,6 +28,15 @@ export default function Footer(){
                             Progetto <a href="https://github.com/opendatasicilia/covid-open-report-sicilia" target="_blank" rel="noreferrer">GitHub</a>
                         </p>
                     </div>
+                </div>
+                <div className='analytics text-center mx-auto'>
+                    <small className="text-white">
+                        Google Analytics tracks number of visitors.<br/>
+                        You have&nbsp;{localStorage.getItem('consent') === 'yes' ? "accepted" : "refused"} to take part.
+                        <button style={{backgroundColor:'transparent',color:'white',textDecoration:'underline'}} onClick={() => remove()}>
+                            Review my choice
+                        </button>
+                    </small>
                 </div>
             </div>
         </footer>

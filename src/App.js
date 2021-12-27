@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import Reports from "./components/Reports";
+import CookiePolicy from "./components/CookiePolicy";
 import Footer from "./components/Footer";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Reports/>
         </div>
       </main>
+      <CookiePolicy/>
       <Footer/>
     </>
   );
