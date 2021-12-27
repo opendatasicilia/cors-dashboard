@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useParams } from 'react-router-dom';
 import Select, { createFilter } from 'react-select';
 import MenuList from '../lib/menuList';
 import comuni from '../data/elenco-comuni-siciliani.json';
@@ -10,7 +11,13 @@ import Table from './Charts/Table';
 
 export default function Dashboard(){
 
-    const random = comuni[[Math.floor(Math.random()*comuni.length)]]
+    let { input } = useParams()
+    let random = comuni[[Math.floor(Math.random()*comuni.length)]]
+
+    if(typeof(slug) !== undefined && comuni.some(e => e.slug === input)){
+        random = comuni.find(x => x.slug === input)
+    }
+
     const [istat, setIstat] = useState(random['comune_codice_istat'])
     const options = comuni.map(item => ({
           value: item.comune_codice_istat.substring(1),
