@@ -60,6 +60,7 @@ th span{
 }
 
 .slick-next:before, .slick-prev:before{
+  display: none;
   color: #434343;
 }
 
@@ -80,5 +81,8 @@ th span{
   }
   abbr::before {
     content: attr(title);
+  }
+  .slick-next:before, .slick-prev:before{
+    display: block;
   }
 }
