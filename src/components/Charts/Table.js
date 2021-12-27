@@ -30,11 +30,11 @@ export default function Table(){
 
   return(
       !isLoading&&
-        <div className="row p-2">
+        <div className="row">
             <table>
                 <thead className="text-end" style={{backgroundColor:'#e0e0e0'}}>
                     <tr>
-                        <th/>
+                        <th className="d-none d-sm-block" />
                         <th className="text-start">
                             <span onClick={() => sortBy(data,'comune')}>
                                 Comune
@@ -42,22 +42,30 @@ export default function Table(){
                         </th>
                         <th>
                             <span onClick={() => sortBy(data,'incidenza')}>
-                                Incidenza
+                                <abbr title="Incidenza">
+                                    <span>Inc</span>
+                                </abbr>
                             </span>
                         </th>
                         <th>
                             <span onClick={() => sortBy(data,'casi')}>
-                                Nuovi casi
+                                <abbr title="Nuovi casi">
+                                    <span>Casi</span>
+                                </abbr>
                             </span>
                         </th>
                         <th>
                             <span onClick={() => sortBy(data,'%vaccinati')}>
-                                %Vaccinati
+                                <abbr title="%Vaccinati">
+                                    <span>Vax</span>
+                                </abbr>
                             </span>
                         </th>
                         <th>
                             <span onClick={() => sortBy(data,'%immunizzati')}>
-                                %Immunizzati
+                                <abbr title="%Immunizzati">
+                                    <span>Imm</span>
+                                </abbr>
                             </span>
                         </th>
                     </tr>
@@ -65,7 +73,7 @@ export default function Table(){
                 <tbody>
                 {data.slice(0, comuniNumb).map((comune, i) => (
                     <tr className="text-end" key={i}>
-                        <td className="text-start">{i+1}.</td>
+                        <td className="text-start d-none d-sm-block">{i+1}.</td>
                         <td className="text-start">{comune.comune}</td>
                         <td>{comune.incidenza}</td>
                         <td>{comune.casi}</td>
