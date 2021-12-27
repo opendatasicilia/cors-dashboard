@@ -56,32 +56,28 @@ export default function GetData({mode, istat, latest}){
         ]
     }
 
-    return(       
-        <div className="row text-end">
-            {
-                layout[mode].map((col, i) => (
-                    <div className="col-12 mb-4" key={col.title+i}>
-                        <div className="p-3 card border-0 rounded">
-                            <div className="d-flex justify-content-end">
-                                <h3 className="text-muted">
-                                    {col.title}
-                                </h3>
-                                <span className="h4 info ms-1" data-tip data-for={col.title+i}><FcInfo/></span>
-                            </div>
-                            <ReactTooltip className="tooltip" multiline={true} id={col.title+i} place="left" effect="solid" type="info">
-                                {col.description}
-                            </ReactTooltip>
-                            {
-                                isLoading ? <Spinner/> :
-                                <h4 className="h1">
-                                    {col.icon && <img style={{height:'30px',margin:'0px 8px 8px 0px'}} src={col.icon} alt={col.title} />}
-                                    {data[0][col.field]}{col.suffix && col.suffix}
-                                </h4>
-                            }
-                        </div>
+    return(    
+        layout[mode].map((col, i) => (
+            <div className="col-12 col-md-6 col-lg-3 mb-4 text-end" key={col.title+i}>
+                <div className="p-3 card border-0 rounded">
+                    <div className="d-flex justify-content-end">
+                        <h3 className="text-muted">
+                            {col.title}
+                        </h3>
+                        <span className="h4 info ms-1" data-tip data-for={col.title+i}><FcInfo/></span>
                     </div>
-                ))
-            }
-        </div>
+                    <ReactTooltip className="tooltip" multiline={true} id={col.title+i} place="left" effect="solid" type="info">
+                        {col.description}
+                    </ReactTooltip>
+                    {
+                        isLoading ? <Spinner/> :
+                        <h4 className="h1">
+                            {col.icon && <img style={{height:'30px',margin:'0px 8px 8px 0px'}} src={col.icon} alt={col.title} />}
+                            {data[0][col.field]}{col.suffix && col.suffix}
+                        </h4>
+                    }
+                </div>
+            </div>
+        ))
     )
 }

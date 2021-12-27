@@ -33,13 +33,9 @@ export default function Dashboard(){
                     onChange={(e) => setIstat(e.value)}
                 />
             </div>
-            <div className="row">
-                <div className="col-12 col-md-6">
-                    <Get mode={"incidenza"} istat={istat} latest={true}/>
-                </div>
-                <div className="col-12 col-md-6">
-                    <Get mode={"vaccini"} istat={istat} latest={true}/>
-                </div>
+            <div className="row mb-3">
+                <Get mode={"incidenza"} istat={istat} latest={true}/>
+                <Get mode={"vaccini"} istat={istat} latest={true}/>
             </div>
             <div className="row">
                 <div className="col-12 col-md-6 mb-3">
