@@ -118,7 +118,7 @@ const annotation = {
                   },
                   y: mode === 'vaccini' ? {
                       suggestedMin: Math.min(...data.vaccinati) - 20,
-                      suggestedMax: 100,
+                      suggestedMax: Math.max(...data.vaccinati) > 100 ? Math.max(...data.vaccinati)+5 : 100,
                     } : {
                       suggestedMin: 0,
                       suggestedMax: 300
