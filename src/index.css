@@ -16,6 +16,14 @@ a:hover{
   color: #00ffff;
 }
 
+a.comune{
+  color:#212529;
+  text-decoration: none;
+}
+a.comune:hover{
+  text-decoration: underline;
+}
+
 h1,.h1{
   font-family: 'Roboto Condensed', sans-serif;
   color: #333

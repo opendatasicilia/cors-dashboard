@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import fetchData from '../../lib/fetchData';
+import slugify from '../../lib/slugify';
 
 export default function Table(){
 
@@ -74,7 +75,11 @@ export default function Table(){
                 {data.slice(0, comuniNumb).map((comune, i) => (
                     <tr className="text-end" key={i}>
                         <td className="text-start d-none d-sm-block">{i+1}.</td>
-                        <td className="text-start">{comune.comune}</td>
+                        <td className="text-start">
+                            <a className="comune" href={process.env.PUBLIC_URL+'/comune/'+slugify(comune.comune)}>
+                                {comune.comune}
+                            </a>
+                        </td>
                         <td>{comune.incidenza}</td>
                         <td>{comune.casi}</td>
                         <td>{comune['%vaccinati']}</td>
