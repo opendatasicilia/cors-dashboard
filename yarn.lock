@@ -2807,6 +2807,11 @@ chart.js@^3.7.0:
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.7.0.tgz#7a19c93035341df801d613993c2170a1fcf1d882"
   integrity sha512-31gVuqqKp3lDIFmzpKIrBeum4OpZsQjSIAqlOpgjosHDJZlULtvwLEZKtEhIAZc7JMPaHlYMys40Qy9Mf+1AAg==
 
+chartjs-plugin-annotation@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-annotation/-/chartjs-plugin-annotation-1.2.1.tgz#5d300fc9863ecfdc87e425441e3620c677cd942e"
+  integrity sha512-CUrbZoy8cfg07HEWHsmXA0tW/yAiuDpE6CwzWaOhJBgQxIVP5195fH5l2PSlioviF+5dKfch8zNemDhwPiEBgA==
+
 check-types@^11.1.1:
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-11.1.2.tgz#86a7c12bf5539f6324eb0e70ca8896c0e38f3e2f"

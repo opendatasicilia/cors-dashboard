@@ -13,6 +13,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import annotationPlugin from "chartjs-plugin-annotation";
 
 export default function LineChart({mode, istat, latest}){
 
@@ -49,8 +50,24 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  annotationPlugin
 );
+
+const annotation = {
+  type: 'line',
+  borderColor: '#555',
+  borderDash: [3],
+  borderWidth: 1,
+  label: {
+    enabled: true,
+    backgroundColor: '#434343',
+    content: 'target: >=5 anni',
+    position: 'start'
+  },
+  scaleID: 'x',
+  value: '15/12/21'
+}
 
   return(
       !isLoading&&
@@ -118,7 +135,12 @@ ChartJS.register(
                 plugins: {
                   legend: {
                     position: 'top',
-                  },
+                  }, 
+                  annotation: mode === 'vaccini' ? {
+                    annotations: {
+                      annotation
+                    }
+                  } : null,
                 },
               }
             }
