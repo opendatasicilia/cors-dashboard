@@ -35,8 +35,8 @@ export default function PrivacyPolicy(){
             <h3>Informazioni generali sui cookie e altre tecnologie di monitoraggio</h3>
             <p>
                 Questo sito utilizza cookie. Ciò vuole dire che quando l'utente visita il presente sito possono
-                essere introdotti nel computer o in altro dispositivo “first party cookies” (generati e rilasciati da
-                {dati.url}) e/o “thirdy party cookies” (generati e rilasciati da siti diversi da {dati.url}).
+                essere introdotti nel computer o in altro dispositivo “first party cookies” (generati e rilasciati da {dati.url}) 
+                e/o “thirdy party cookies” (generati e rilasciati da siti diversi da {dati.url}).
             </p>
             <p>
                 I cookie sono stringhe di testo di piccole dimensioni che i siti visitati dall'utente inviano al suo

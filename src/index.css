@@ -18,10 +18,9 @@ a:hover{
 
 a.comune{
   color:#212529;
-  text-decoration: none;
 }
 a.comune:hover{
-  text-decoration: underline;
+  color:#434343;
 }
 
 h1,.h1{
@@ -97,4 +96,12 @@ th span{
 .modal-dialog {
   width: 1024px;
   max-width: 90vw;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1pt solid lightgray;
 }

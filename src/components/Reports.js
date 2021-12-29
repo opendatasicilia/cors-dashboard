@@ -58,8 +58,9 @@ export default function Reports(){
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 800,
                     settings: {
+                      dots: false,
                       slidesToShow: 2,
                       slidesToScroll: 1
                     }
@@ -67,6 +68,8 @@ export default function Reports(){
                 {
                       breakpoint: 400,
                       settings: {
+                        dots: false,
+                        autoplay: true,
                         slidesToShow: 1,
                         slidesToScroll: 1
                       }
@@ -76,7 +79,7 @@ export default function Reports(){
 
     return(
         !isLoading && 
-        <div className="row mt-5 mb-5">
+        <div className="w-100 container mt-5 mb-5">
             <h1 className="h3 text-end mb-3">
                 Bollettini pubblicati
             </h1>

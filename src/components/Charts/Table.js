@@ -31,7 +31,7 @@ export default function Table(){
 
   return(
       !isLoading&&
-        <div className="row">
+        <div className="row w-100 mx-auto">
             <table>
                 <thead className="text-end" style={{backgroundColor:'#e0e0e0'}}>
                     <tr>
