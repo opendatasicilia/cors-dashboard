@@ -1,5 +1,5 @@
 import scarica from '../images/scarica-dati.png'
-import logo from '../images/opendatasicilia.png'
+import logo from '../images/opendatasicilia.svg'
 import ccby4 from '../images/ccby4.png'
 import {remove} from '../lib/cookieConsent'
 
