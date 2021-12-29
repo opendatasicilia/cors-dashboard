@@ -3,7 +3,7 @@ export default function PrivacyPolicy(){
     const dati = {
         lastUpdate: '29 Dicembre 2021',
         sito: 'CORS Dashboard',
-        url: 'https://dasoe-report.netlify.app',
+        url: 'https://report-dasoe.opendatasicilia.it/',
         owner: 'OpenDataSicilia',
         address: null,
         email: 'info@opendatasicilia.it'
