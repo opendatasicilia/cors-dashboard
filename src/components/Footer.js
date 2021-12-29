@@ -12,7 +12,7 @@ export default function Footer(){
                         <img style={{height:'93px'}} src={logo} alt="open data Sicilia"/>
                         <div className="ms-3 text-white">
                             <p>
-                                Fonte: Regione Siciliana (DASOE)<br/>
+                                Fonte: <a href="https://github.com/opendatasicilia/covid-open-report-sicilia#readme" target="_blank" rel="noreferrer">Regione Siciliana (DASOE)</a><br/>
                                 Elaborazione dati: <a href="https://opendatasicilia.it" target="_blank" rel="noreferrer">Open Data Sicilia</a><br/>
                             </p>
                             <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
