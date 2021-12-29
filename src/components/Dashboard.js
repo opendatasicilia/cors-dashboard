@@ -14,8 +14,8 @@ export default function Dashboard(){
     let { input } = useParams()
     let random = comuni[[Math.floor(Math.random()*comuni.length)]]
 
-    if(typeof(slug) !== undefined && comuni.some(e => e.slug === input)){
-        random = comuni.find(x => x.slug === input)
+    if(typeof(slug) !== undefined && (comuni.some(e => e.slug === input) || comuni.some(e => e.comune_codice_istat === input))) {
+        random = comuni.find(x => x.slug === input) || comuni.find(x => x.comune_codice_istat === input)
     }
 
     const [istat, setIstat] = useState(random['comune_codice_istat'])
