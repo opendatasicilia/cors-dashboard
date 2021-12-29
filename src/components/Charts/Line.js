@@ -78,13 +78,13 @@ const annotation = {
                 datasets: mode === 'vaccini' ? 
                   [
                       {
-                          label: '%Vaccinati',
+                          label: 'Vaccinati',
                           data: data.vaccinati,
                           borderColor: 'rgb(6, 214, 160)',
                           backgroundColor: 'rgba(6, 214, 160, 0.5)',
                         },
                         {
-                          label: '%Immunizzati',
+                          label: 'Immunizzati',
                           data: data.immunizzati,
                           borderColor: 'rgb(17, 138, 178)',
                           backgroundColor: 'rgba(17, 138, 178, 0.5)',
@@ -119,6 +119,11 @@ const annotation = {
                   y: mode === 'vaccini' ? {
                       suggestedMin: Math.min(...data.vaccinati) - 20,
                       suggestedMax: Math.max(...data.vaccinati) > 100 ? Math.max(...data.vaccinati)+5 : 100,
+                      ticks: {
+                        callback: function(value) {
+                          return value + "%";
+                        }
+                      }
                     } : {
                       suggestedMin: 0,
                       suggestedMax: 300
@@ -135,7 +140,14 @@ const annotation = {
                 plugins: {
                   legend: {
                     position: 'top',
-                  }, 
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: (value) => { 
+                        return `${value.dataset.label}: ${value.parsed.y}${mode === 'vaccini' ? '%' : ''}`
+                      }
+                    }
+                  },
                   annotation: mode === 'vaccini' ? {
                     annotations: {
                       annotation
