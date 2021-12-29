@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { set } from '../lib/cookieConsent';
+import Modal from './Modal';
+import PrivacyPolicy from '../pages/privacy-policy';
 
 export default function CookiePolicy(){
     return(
@@ -15,9 +17,7 @@ export default function CookiePolicy(){
                 </p>
                 <div className="d-block d-md-flex justify-content-between">
                     <div>
-                        <Button>
-                            Scopri di piu
-                        </Button>
+                        <Modal btnTitle={'Scopri di piu'} StyledButton={Button} child={<PrivacyPolicy/>}/>
                     </div>
                     <div>
                         <Button className="me-2" onClick={() => set('no')}>
@@ -43,7 +43,6 @@ const Bar = styled.div`
 
 const Button = styled.button`
     border: 2px solid white;
-    border-radius: 2px;
     color: white;
     background-color: transparent;
     &:hover{

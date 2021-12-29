@@ -94,3 +94,7 @@ th span{
     display: block;
   }
 }
+.modal-dialog {
+  width: 1024px;
+  max-width: 90vw;
+}
