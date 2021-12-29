@@ -8,8 +8,7 @@ export default function Table(){
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState({});
     const [order, setOrder] = useState(true);
-
-    let comuniNumb = 10
+    const [comuniNumb, setComuniNumb] = useState(10)
 
     useEffect(() => {
         async function get() {
@@ -29,8 +28,24 @@ export default function Table(){
         setData(sorted)
     }
 
+    const showOptions = [10, 25, 50, 100]
+
   return(
-      !isLoading&&
+    !isLoading&&
+    <>
+        <div className="d-flex justify-content-between">
+            <div>
+                <h1 className="h3 text-uppercase mb-3">
+                    Quali sono i comuni con l'incidenza piu' alta?
+                </h1>
+            </div>
+            <div className="align-self-center">
+                <select onChange={(e) => setComuniNumb(e.target.value)} value={comuniNumb}>
+                    {showOptions.map((option, i) => <option value={option} key={i}>Mostra {option}</option>)}
+                    <option value={390}>Mostra tutti</option>
+                </select>
+            </div>
+        </div>
         <div className="row w-100 mx-auto">
             <table>
                 <thead className="text-end" style={{backgroundColor:'#e0e0e0'}}>
@@ -89,5 +104,6 @@ export default function Table(){
                 </tbody>
             </table>
         </div>
+    </>
   );
 }

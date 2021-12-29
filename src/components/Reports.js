@@ -6,6 +6,7 @@ import { it } from 'date-fns/esm/locale'
 import Slider from "react-slick"
 import {BiCalendarEvent} from 'react-icons/bi'
 import {MdPictureAsPdf} from 'react-icons/md'
+import {FaChevronLeft, FaChevronRight} from 'react-icons/fa'
 
 export default function Reports(){
 
@@ -44,25 +45,26 @@ export default function Reports(){
             arrows: true,
             infinite: true,
             slidesToShow: 4,
-            slidesToScroll: 1,
+            slidesToScroll: 4,
             initialSlide: 0,
             centerMode: false,
             speed: 123,
+            nextArrow: <FaChevronRight color={'#434343'} />,
+            prevArrow: <FaChevronLeft color={'#434343'} />,
             responsive: [
                 {
                     breakpoint: 960,
                     settings: {
                         initialSlide:0,
                         slidesToShow: 3,
-                        slidesToScroll: 1
+                        slidesToScroll: 3
                     }
                 },
                 {
                     breakpoint: 800,
                     settings: {
-                      dots: false,
                       slidesToShow: 2,
-                      slidesToScroll: 1
+                      slidesToScroll: 2
                     }
                 },
                 {

@@ -61,12 +61,7 @@ export default function Dashboard(){
                 </div>
             </div>
             <div className="row mt-5">
-                <h1 className="h3 text-uppercase mb-3">
-                    Quali sono i comuni con l'incidenza piu' alta?
-                </h1>
-                <div className="col-12">
-                    <Table/>
-                </div>
+                <Table/>
             </div>
         </div>
       )
