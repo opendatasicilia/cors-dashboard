@@ -41,14 +41,14 @@ export default function GetData({mode, istat, latest}){
         vaccini: [
             {
                 title: 'Vaccinati',
-                field: '%vaccinati',
+                field: 'prima_dose',
                 description: 'Percentuale di persone vaccinate con almeno una dose (calcolata rispetto al target)',
                 icon: vaccinati,
                 suffix: '%'
             },
             {
                 title: 'Immunizzati',
-                field: '%immunizzati',
+                field: 'seconda_dose',
                 description: 'Percentuale di: persone vaccinate con 2 o più dosi, persone vaccinate in monodose per pregressa infezione Covid, persone vaccinate con Janssen (calcolata rispetto al target)',
                 icon: immunizzati,
                 suffix: '%'

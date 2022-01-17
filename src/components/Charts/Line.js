@@ -32,8 +32,8 @@ export default function LineChart({mode, istat, latest}){
                 const target = targets.filter(a => a.pro_com_t.endsWith(istat))[0];
                 setData({
                     date: res.map(a => format(new Date(a.data), "dd/MM/yy")),
-                    vaccinati: res.map(a => a['%vaccinati']),
-                    immunizzati: res.map(a => a['%immunizzati']),
+                    vaccinati: res.map(a => a['prima_dose']),
+                    immunizzati: res.map(a => a['seconda_dose']),
                     target: res.map(a => new Date(a.data) > new Date('2021-12-08') ? target['>=5'] : target['>=12']),
                     totale: Array(res.length).fill(target.totale)
                 })

@@ -71,14 +71,14 @@ export default function Table(){
                             </span>
                         </th>
                         <th>
-                            <span onClick={() => sortBy(data,'%vaccinati')}>
+                            <span onClick={() => sortBy(data,'prima_dose')}>
                                 <abbr title="Vaccinati">
                                     <span>Vax</span>
                                 </abbr>
                             </span>
                         </th>
                         <th>
-                            <span onClick={() => sortBy(data,'%immunizzati')}>
+                            <span onClick={() => sortBy(data,'seconda_dose')}>
                                 <abbr title="Immunizzati">
                                     <span>Imm</span>
                                 </abbr>
@@ -97,8 +97,8 @@ export default function Table(){
                         </td>
                         <td>{comune.incidenza}</td>
                         <td>{comune.casi}</td>
-                        <td>{comune['%vaccinati'] + '%'}</td>
-                        <td>{comune['%immunizzati'] + '%'}</td>
+                        <td>{comune['prima_dose'] + '%'}</td>
+                        <td>{comune['seconda_dose'] + '%'}</td>
                     </tr>
                 ))}
                 </tbody>

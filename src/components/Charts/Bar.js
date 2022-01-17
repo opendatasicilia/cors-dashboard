@@ -30,8 +30,8 @@ export default function BarChart({mode, istat, latest}){
             } else if(mode === 'vaccini'){
                 const target = targets.filter(a => a.pro_com_t.endsWith(istat))[0];
                 const date = res.map(a => format(new Date(a.data), "dd/MM/yy"))
-                const vaccinati = res.map(a => new Date(a.data) > new Date('2021-12-08') ? (a['%vaccinati'] * target['>=5'] / 100) : a['%vaccinati'] * target['>=12'] / 100).map((v, i, a) => v - (a[i - 1] || 0)).map(e => Math.round(e))
-                const immunizzati = res.map(a => new Date(a.data) > new Date('2021-12-08') ? (a['%immunizzati'] * target['>=5'] / 100) : a['%immunizzati'] * target['>=12'] / 100).map((v, i, a) => v - (a[i - 1] || 0)).map(e => Math.round(e))
+                const vaccinati = res.map(a => new Date(a.data) > new Date('2021-12-08') ? (a['prima_dose'] * target['>=5'] / 100) : a['prima_dose'] * target['>=12'] / 100).map((v, i, a) => v - (a[i - 1] || 0)).map(e => Math.round(e))
+                const immunizzati = res.map(a => new Date(a.data) > new Date('2021-12-08') ? (a['seconda_dose'] * target['>=5'] / 100) : a['seconda_dose'] * target['>=12'] / 100).map((v, i, a) => v - (a[i - 1] || 0)).map(e => Math.round(e))
                 setData({
                   date: date.slice(1),
                   vaccinati: vaccinati.slice(1),
