@@ -17,6 +17,15 @@ export default function BarChart({ mode, istat, latest }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
 
+  const calculateTarget = (data, event, target) => {
+    const date = new Date(data);
+    if (date > new Date("2021-12-08")) {
+      return (event * target[">=5"]) / 100;
+    } else {
+      return (event * target[">=12"]) / 100;
+    }
+  };
+
   useEffect(() => {
     async function get() {
       const res = await fetchData(mode, istat, latest);
@@ -30,19 +39,33 @@ export default function BarChart({ mode, istat, latest }) {
         const target = targets.filter((a) => a.pro_com_t.endsWith(istat))[0];
         const date = res.map((a) => format(new Date(a.data), "dd/MM/yy"));
         const vaccinati = res
-          .map((a) =>
-            new Date(a.data) > new Date("2021-12-08")
-              ? (a["prima_dose"] * target[">=5"]) / 100
-              : (a["prima_dose"] * target[">=12"]) / 100
-          )
+          .map((event, index) => {
+            if (event.prima_dose === "") {
+              const yesterday = res[index - 1].prima_dose;
+              const tomorrow = res[index + 1]?.prima_dose;
+              if (!tomorrow) {
+                return 0;
+              }
+              const avg = (yesterday + tomorrow) / 2;
+              return calculateTarget(event.data, avg, target);
+            }
+            return calculateTarget(event.data, event.prima_dose, target);
+          })
           .map((v, i, a) => v - (a[i - 1] || 0))
           .map((e) => Math.round(e));
         const immunizzati = res
-          .map((a) =>
-            new Date(a.data) > new Date("2021-12-08")
-              ? (a["seconda_dose"] * target[">=5"]) / 100
-              : (a["seconda_dose"] * target[">=12"]) / 100
-          )
+          .map((event, index) => {
+            if (event.seconda_dose === "") {
+              const yesterday = res[index - 1].seconda_dose;
+              const tomorrow = res[index + 1]?.seconda_dose;
+              if (!tomorrow) {
+                return 0;
+              }
+              const avg = (yesterday + tomorrow) / 2;
+              return calculateTarget(event.data, avg, target);
+            }
+            return calculateTarget(event.data, event.seconda_dose, target);
+          })
           .map((v, i, a) => v - (a[i - 1] || 0))
           .map((e) => Math.round(e));
         setData({
@@ -55,8 +78,6 @@ export default function BarChart({ mode, istat, latest }) {
     }
     get();
   }, [mode, istat, latest]);
-
-  console.log(data);
 
   ChartJS.register(
     CategoryScale,
